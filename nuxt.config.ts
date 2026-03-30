@@ -5,10 +5,38 @@ export default defineNuxtConfig({
     imports: {
         autoImport: true,
     },
+
+    // routeRules: {
+    //     // страница один раз будет сгенерирована на сервере и отдана, изменения только при пересборке
+    //     "/about": { prerender: true },
+    //     // данные будут ревалидироваться либо при перезагрузке страницы либо по времени
+    //     "/": {swr: true}
+    // },
+    //переводим на csr по факту обычный vue
+    // ssr: false,
     runtimeConfig: {
         token: "",
         public: {
             apiurl: "",
+        },
+    },
+    postcss: {
+        plugins: {
+            "postcss-nested": {},
+        },
+    },
+    app: {
+        head: {
+            title: "Магазин Shoppe",
+            titleTemplate: "%s | Shoppe",
+            htmlAttrs: {
+                lang: "ru",
+            },
+            link: [
+                { rel: "icon", type: "image/png", href: "/favicon-32x32.png" },
+                { rel: "manifest", crossorigin: "anonymous", href: "/manifest.webmanifest" },
+                { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" },
+            ],
         },
     },
     icon: {

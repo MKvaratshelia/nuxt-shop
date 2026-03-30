@@ -43,7 +43,7 @@ import IconLogo from "./icon/IconLogo.vue";
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .header {
     padding: 0 16px;
     margin: 0 auto;
@@ -52,9 +52,21 @@ import IconLogo from "./icon/IconLogo.vue";
     justify-content: space-between;
     margin-top: 48px;
     border-bottom: 1px solid var(--color-gray);
+
+    &__content {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+    }
+
+    &__menu {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+    }
 }
 
-.header__content {
+/* .header__content {
     display: flex;
     gap: 60px;
     align-items: center;
@@ -64,7 +76,7 @@ import IconLogo from "./icon/IconLogo.vue";
     display: flex;
     gap: 60px;
     align-items: center;
-}
+} */
 
 .header__menu a {
     font-size: 16px;

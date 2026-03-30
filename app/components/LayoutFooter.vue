@@ -9,6 +9,7 @@
             </ul>
             <div class="footer__form">
                 <InputField
+                    type="email"
                     placeholder="Введите email для новостей и акций"
                     variant="black"
                 />
