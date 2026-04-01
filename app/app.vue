@@ -25,7 +25,6 @@ import "@/assets/styles/main.css";
     margin: 0 auto;
     max-width: 1248px;
     padding: 40px 16px;
-    display: flex;
 }
 
 .page-enter-from,
