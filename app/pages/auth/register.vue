@@ -1,6 +1,5 @@
 <script setup lang="ts"></script>
-
 <template>
-    <div>auth</div>
+    <div>Register</div>
 </template>
 <style scoped></style>

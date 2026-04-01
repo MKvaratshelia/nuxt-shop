@@ -22,6 +22,7 @@ const { color = "primary" } = defineProps<{
     padding: 16px;
     font-size: 16px;
     font-weight: 700;
+    width: 100%;
 }
 .primary {
     background: var(--color-black);

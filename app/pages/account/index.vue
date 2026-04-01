@@ -1,6 +1,17 @@
-<script setup lang="ts"></script>
+<script lang="ts" setup>
+// проверяем авторизацию при загрузке через middleware auth, если не авторизован - редирект на страницу логина
+definePageMeta({
+    middleware: "auth",
+});
+const authStore = useAuthStore();
+</script>
 
 <template>
-    <div>account</div>
+    <div>
+        <NuxtLink
+            href="/"
+            @click="authStore.clearToken"
+            >Выход</NuxtLink
+        >
+    </div>
 </template>
-<style scoped></style>

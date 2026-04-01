@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const useFavoritesStore = defineStore(
     "favorites",
     () => {
+        const authStore = useAuthStore();
         const favoriteIds = ref<number[]>([]);
 
         function isFavorite(id: number) {
@@ -17,10 +18,18 @@ export const useFavoritesStore = defineStore(
             favoriteIds.value = favoriteIds.value.filter((item) => item != id);
         }
 
-        return { favoriteIds, isFavorite, toggleFavorite };
+        async function restore(email: string) {
+            const data = await $fetch<number[]>("/api/favorites", {
+                query: {
+                    email: email,
+                },
+            });
+            favoriteIds.value = data;
+        }
+
+        return { favoriteIds, toggleFavorite, isFavorite, restore };
     },
     {
-        //будет сохранять в куках, при перезагрузке страницы сохраненные данные останутся
         persist: true,
     },
 );
