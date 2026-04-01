@@ -103,6 +103,7 @@ const { data: productsData } = await useFetch<GetProductsResponse>(API_URL + "/p
     display: flex;
     flex-direction: column;
     width: 260px;
+    gap: 20px;
 }
 
 .catalog__search {
