@@ -1,4 +1,9 @@
 <script setup lang="ts">
+useSeoMeta({
+    title: "Главная магазина",
+    description: "Магазин Shoppe с ювелирными изделиями.",
+    ogDescription: "Магазин Shoppe с ювелирными изделиями.",
+});
 // отключит ssr на странице
 // definePageMeta({ ssr: false })
 

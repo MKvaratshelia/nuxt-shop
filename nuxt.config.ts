@@ -40,6 +40,26 @@ export default defineNuxtConfig({
             ],
         },
     },
+    nitro: {
+        storage: {
+            db: {
+                driver: "fs-lite",
+                base: "./db",
+            },
+        },
+    },
+
+    sitemap: {
+        sources: ["/api/sitemap/urls"],
+        defaults: {
+            lastmod: new Date().toISOString(),
+            priority: 0.5,
+            changefreq: "weekly",
+        },
+    },
+    robots: {
+        disallow: ["/account"],
+    },
     icon: {
         customCollections: [
             {
@@ -56,5 +76,7 @@ export default defineNuxtConfig({
         "@nuxt/icon",
         "@pinia/nuxt",
         "pinia-plugin-persistedstate/nuxt",
+        "@nuxtjs/sitemap",
+        "@nuxtjs/robots",
     ],
 });

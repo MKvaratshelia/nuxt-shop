@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useSeoMeta({
+    title: "О магазине Shoppe",
+});
+</script>
 
 <template>
     <div>about</div>

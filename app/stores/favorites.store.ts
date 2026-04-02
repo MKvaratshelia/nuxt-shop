@@ -13,9 +13,23 @@ export const useFavoritesStore = defineStore(
         function toggleFavorite(id: number) {
             if (!favoriteIds.value.includes(id)) {
                 favoriteIds.value.push(id);
-                return;
+            } else {
+                favoriteIds.value = favoriteIds.value.filter((item) => item != id);
             }
-            favoriteIds.value = favoriteIds.value.filter((item) => item != id);
+
+            if (authStore.email) {
+                save();
+            }
+        }
+
+        async function save() {
+            await $fetch<{ success: boolean }>("/api/favorites", {
+                method: "POST",
+                body: {
+                    email: authStore.email,
+                    ids: favoriteIds.value,
+                },
+            });
         }
 
         async function restore(email: string) {
